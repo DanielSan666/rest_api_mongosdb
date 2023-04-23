@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const URI =
   "mongodb+srv://daniel:mHtgntSeZZRkwEMe@cluster0.d8pn2uf.mongodb.net/API?retryWrites=true&w=majority";
 
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", true);
 
 mongoose
   .connect(URI)
@@ -15,6 +15,6 @@ mongoose
   .catch((error) => console.log(error));
 
 //arranque de la api
-app.listen(port, "0.0.0.0",  () => {
+app.listen(port, "0.0.0.0", () => {
   console.log("Server on port", port);
 });
