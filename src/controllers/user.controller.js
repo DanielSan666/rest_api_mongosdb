@@ -9,7 +9,7 @@ const login = async (req, res) => {
     const cmp = await bcrypt.compare(req.body.Password, someUser.Password);
     if (cmp) {
       var token = jwt.sign(
-        { email: someUser.email, _id: someUser._id },
+        { email: someUser.Email, _id: someUser._id },
         "Secret",
         {
           expiresIn: "2h",
@@ -22,7 +22,7 @@ const login = async (req, res) => {
         auth: true,
         name: someUser.Nombre,
         lastName: someUser.Apellido,
-        phone: someUser.Telefono
+        phone: someUser.Telefono,
       });
     } else {
       res.send("Usuario o contraseña incorrectos");
@@ -72,7 +72,6 @@ const saveUser = async (req, res) => {
     Email: req.body.Email,
     Telefono: req.body.Telefono,
     Password: hashedPwd,
-    
   });
   const userSaved = await newUser.save();
   res.json(userSaved);

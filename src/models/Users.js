@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
-
-
+const casaSchema = require("./Casa").schema;
 
 const userSchema = mongoose.Schema({
-  
   Nombre: {
     type: String,
     required: true,
   },
-  Apellido:{
+  Apellido: {
     type: String,
     required: true,
   },
@@ -16,7 +14,7 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Telefono:{
+  Telefono: {
     type: String,
     required: true,
   },
@@ -24,6 +22,12 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  Casas: [
+    {
+      type: casaSchema,
+      ref: "casa",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);

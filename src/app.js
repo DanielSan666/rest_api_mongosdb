@@ -4,7 +4,8 @@ const morgan = require("morgan");
 const cors = require("cors");
 //uso de las rutas creadas con express router
 const userRoutes = require("./routes/users.routes");
-const prototipoRoutes = require("./routes/prototipo.routes")
+const prototipoRoutes = require("./routes/prototipo.routes");
+const casasRoutes = require("./routes/casa.routes");
 
 const app = express();
 //Midelwares
@@ -19,5 +20,6 @@ app.get("/", (req, res) => {
 //el "/api/..." es para saber como esta formada la URL
 app.use("/api/users", userRoutes);
 app.use("/api/data", prototipoRoutes);
+app.use("/api/casas", casasRoutes);
 
 module.exports = app;
