@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const habitacionSchema = require("./Habitacion").schema;
 
 const casaSchema = mongoose.Schema({
   Calle: {
@@ -19,7 +18,7 @@ const casaSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Habitaciones: [{ type: habitacionSchema, ref: "habitacion" }],
+  Habitaciones: [{ type: mongoose.ObjectId, ref: "habitacion" }],
 });
 
 module.exports = mongoose.model("casa", casaSchema);
