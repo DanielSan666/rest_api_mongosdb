@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const casaSchema = require("./Casa").schema;
 
 const userSchema = mongoose.Schema({
   Nombre: {
@@ -24,7 +23,7 @@ const userSchema = mongoose.Schema({
   },
   Casas: [
     {
-      type: casaSchema,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "casa",
     },
   ],
